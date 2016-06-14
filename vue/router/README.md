@@ -1,3 +1,4 @@
+# vue+vue-router+vue-loader+webpack
 # usage
 		# install deps
 		$ npm install
