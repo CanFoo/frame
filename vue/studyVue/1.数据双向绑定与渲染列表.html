@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo1</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    	<p>数据双向绑定</p>
+        <p>{{ message }}</p>
+        <input v-model="message">
+        <p>渲染列表</p>
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        message: 'hello world!',
+        todos: [
+	      { text: 'Learn JavaScript' },
+	      { text: 'Learn Vue.js' },
+	      { text: 'Build Something Awesome' }
+	    ]
+    }
+})
+</script>
+
+</html>

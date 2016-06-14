@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+        .class-a {
+          width: 100px;
+          height: 100px;
+          background: red;
+        }
+        .class-b {
+          background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if从dom增加或者移除 -->
+        <div v-if="ok">
+          <h1>ok</h1>
+        </div>
+
+        <!-- v-show通过display属性实现的 -->
+        <div v-show="ok">  
+          <h1>ok</h1>
+        </div>
+        <div v-if="no">
+          <h1>Title</h1>
+        </div>
+        <div v-else>
+           <h1>no</h1>
+        </div>
+    </div>
+</body>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    ok: true,
+    no: false,
+  }
+})
+
+</script>
+
+</html>

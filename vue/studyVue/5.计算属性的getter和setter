@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+          <input v-model="firstName"><span>{{firstName}}</span>
+        </div>
+        <div>
+          <input v-model="lastName"><span>{{lastName}}</span>
+        </div>
+        <input v-model="fullName"><span>{{fullName}}</span>
+    </div>
+</body>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  computed: {
+    fullName: {
+      get: function(){  //将firstName和lastName的变化实时更新到fullName上
+          return this.firstName + ' ' + this.lastName; 
+      },
+      set: function (newValue) {  //将ffullName的变化分别实时更新到firstName和lastName上
+        var names = newValue.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[names.length - 1]
+      }
+    }
+  }
+})
+
+</script>
+
+</html>

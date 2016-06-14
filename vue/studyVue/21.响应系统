@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- Vue.js 最显著的一个功能是响应系统 —— 模型只是普通对象，修改它则更新视图 -->
+    <div id="app">   
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+        <p>{{c}}</p>
+        <p>{{d}}</p>
+    </div>
+</body>
+<script>
+var data = { a: 1 }
+var vm = new Vue({
+  el: "#app",
+  data: data
+});
+
+vm.$set('b', 2);  //可以响应
+Vue.set(data, 'c', 3); //可以响应
+vm.d = 6; //不可以响应，页面没有显示6
+
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+   
+    </style>
+</head>
+
+<body>
+    <!-- 子组件模板 -->
+    <template id="child-template">
+      <input v-model="msg">
+      <button v-on:click="notify">Dispatch Event</button>
+    </template>
+
+    <!-- 父组件模板 -->
+    <div id="events-example">
+      <p>Messages: {{ messages | json }}</p>
+      <child></child>
+    </div>
+</body>
+<script>
+
+// 注册子组件
+// 将当前消息派发出去
+Vue.component('child', {
+  template: '#child-template',
+  data: function () {
+    return { msg: 'hello' }
+  },
+  methods: {
+    notify: function () {
+      if (this.msg.trim()) {  //trim()去掉首尾空格
+
+        // 派发事件，事件沿着父链冒泡；
+        // 不同于 DOM 事件，Vue 事件在冒泡过程中第一次触发回调之后自动停止冒泡，除非回调明确返回 true。
+        this.$dispatch('child-msg', this.msg)
+        this.msg = ''
+      }
+    }
+  }
+})
+
+// 初始化父组件
+// 将收到消息时将事件推入一个数组
+var parent = new Vue({
+  el: '#events-example',
+  data: {
+    messages: []
+  },
+  // 在创建实例时 `events` 选项简单地调用 `$on`
+  events: {
+    'child-msg': function (msg) {
+      // 事件回调内的 `this` 自动绑定到注册它的实例上
+      this.messages.push(msg)
+    }
+  }
+})
+
+</script>
+
+</html>

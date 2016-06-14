@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+      .expand-transition {
+          transition: all .3s ease;
+          height: 30px;
+          padding: 10px;
+          background-color: #eee;
+          overflow: hidden;
+      }
+
+      /* .expand-enter 定义进入的开始状态 */
+      /* .expand-leave 定义离开的结束状态 */    
+      .expand-enter,
+      .expand-leave {
+          height: 0;
+          padding: 0 10px;
+          opacity: 0;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 父组件的内容将被抛弃，除非子组件模板包含 <slot> -->
+        <template id="pco">
+          <div > 
+            <h1>This is my component!</h1>
+            <slot>
+              如果没有分发内容则显示我。
+            </slot>
+          </div>
+        </template>
+        
+        <!-- my-component父组件有内容，则会将这些内容插入到父组件中的slot标签内 -->
+        <my-component>
+          <p>This is some original content</p>
+          <p>This is some more original content</p>
+        </my-component>
+
+        <!-- my-component父组件没有内容，则会显示父组件中的slot标签内的内容 -->
+        <my-component>
+        </my-component>
+    </div>
+</body>
+<script>
+
+Vue.component('my-component', {
+  template: "#pco"
+});
+
+
+// 创建根实例
+new Vue({
+  el: '#app',
+
+})
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="example">
+          <my-component></my-component>
+          <easy-component></easy-component>
+        </div>
+        <template id="test-template">
+            <p>template</p>
+        </template>
+    </div>
+</body>
+<script>
+// 定义
+var MyComponent = Vue.extend({
+  template: '<div>A custom component!</div>'
+})
+
+// 注册   标签名用小写，中间加个斜杠的形式！！！（否则，有可能不被识别）
+Vue.component('my-component', MyComponent)
+
+
+//另一种简便写法
+Vue.component('easy-component', {
+  template: '#test-template'
+})
+
+// 创建根实例
+new Vue({
+  el: '#app'
+})
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="firstName"><span>{{firstName}}</span>
+        <input v-model="lastName"><span>{{lastName}}</span>
+        <div >{{fullName}}</div>
+    </div>
+
+</body>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  computed: {
+    fullName: function () {
+      return this.firstName + ' ' + this.lastName; //计算属性，当绑定firstName和lastName发生变化时，会触发该函数
+    }
+  }
+})
+
+</script>
+
+</html>

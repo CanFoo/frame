@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- <slot> 元素可以用一个特殊特性 name 配置如何分发内容。多个 slot 可以有不同的名字。具名 slot 将匹配内容片段中有对应 slot 特性的元素。 -->
+
+        <!-- 仍然可以有一个匿名 slot，它是默认 slot，作为找不到匹配的内容片段的回退插槽。如果没有默认的 slot，这些找不到匹配的内容片段将被抛弃。 -->
+        <template id="pco">
+          <div>
+            <slot name="one"></slot>  
+            <slot></slot>
+            <slot name="two"></slot>
+          </div>
+        </template>
+        
+        <my-component>
+            <p slot="one">One</p>
+            <p slot="two">Two</p>
+            <p>Default A</p>
+        </my-component>
+
+    </div>
+</body>
+<script>
+
+Vue.component('my-component', {
+  template: "#pco"
+});
+
+
+// 创建根实例
+new Vue({
+  el: '#app',
+
+})
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <script src="../lib/vue.min.js"></script>
+    <style>
+      .expand-transition {
+          transition: all .3s ease;
+          height: 30px;
+          padding: 10px;
+          background-color: #eee;
+          overflow: hidden;
+      }
+
+      /* .expand-enter 定义进入的开始状态 */
+      /* .expand-leave 定义离开的结束状态 */    
+      .expand-enter,
+      .expand-leave {
+          height: 0;
+          padding: 0 10px;
+          opacity: 0;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="example">
+          <my-component msg='oooooolllll'></my-component>
+        </div>
+    </div>
+</body>
+<script>
+
+Vue.component('my-component', {
+  props: ['msg'],
+  template: '<div>{{ msg }}</div>'
+});
+
+
+// 创建根实例
+new Vue({
+  el: '#app'
+})
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+        .class-a {
+          width: 100px;
+          height: 100px;
+          background: red;
+        }
+        .class-b {
+          background: blue;
+        }
+    </style>
+</head>
+<body>
+     <div id="app">
+        <ul id="example-2">
+          <li v-for="item in items">
+            {{ parentMessage }} - {{ $index }} - {{ item.message }}
+          </li>
+        </ul>
+    </div>
+</body>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+example2.items.push({message: 'ddd'});  //可以通过数组方法执行数组
+
+</script>
+</html>

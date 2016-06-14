@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="firstName"><span>{{firstName}}</span>
+        <input v-model="lastName"><span>{{lastName}}</span>
+        <div >{{fullName}}</div>
+    </div>
+
+</body>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  }
+})
+
+vm.$watch('firstName', function (val) {     //更改firstName绑定的数据，会触发该回调函数
+  this.fullName = val + ' ' + this.lastName
+})
+
+vm.$watch('lastName', function (val) {
+  this.fullName = this.firstName + ' ' + val
+})
+</script>
+
+</html>

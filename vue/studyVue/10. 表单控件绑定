@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+        .class-a {
+          width: 100px;
+          height: 100px;
+          background: red;
+        }
+        .class-b {
+          background: blue;
+        }
+    </style>
+</head>
+<body>
+     <div id="app">
+        <div>
+            <span>Message is: {{ message }}</span>
+            <br>
+            <!-- v-model用于表单的双向数据绑定,value值值绑定在一起 -->
+            <input type="text" v-model="message" placeholder="edit me">
+        </div>
+        <br>
+        <br>
+        <div>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+        </div>
+        <br>
+        <br>
+        <div>
+          <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+          <label for="jack">Jack</label>
+          <input type="checkbox" id="john" value="John" v-model="checkedNames">
+          <label for="john">John</label>
+          <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+          <label for="mike">Mike</label>
+          <br>
+          <span>Checked names: {{ checkedNames | json }}</span>
+        </div>    
+        
+    </div>
+</body>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    checkedNames: []
+  }
+})
+</script>
+</html>

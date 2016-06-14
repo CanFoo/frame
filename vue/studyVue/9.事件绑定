@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+        .class-a {
+          width: 100px;
+          height: 100px;
+          background: red;
+        }
+        .class-b {
+          background: blue;
+        }
+    </style>
+</head>
+<body>
+     <div id="app">
+        <div id="example">
+          <button v-on:click="greet">Greet</button>
+          <button v-on:click="say('hi')">Say Hi</button>
+          <button v-on:click="say('what')">Say What</button>
+        </div>
+    </div>
+</body>
+<script>
+var vm = new Vue({
+  el: '#example',
+  data: {
+    name: 'Vue.js'
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // 方法内 `this` 指向 vm
+      alert('Hello ' + this.name + '!')
+      // `event` 是原生 DOM 事件
+      alert(event.target.tagName)
+    },
+    say: function (msg) {
+      alert(msg)
+    }
+  }
+})
+
+</script>
+</html>
