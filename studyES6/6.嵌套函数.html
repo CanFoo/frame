@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+function insert(value) {
+  return {into: function (array) {
+    return {after: function (afterValue) {
+      console.log(value, array, afterValue);
+    }};
+  }};
+}
+
+insert(2).into([1, 3]).after(1); //2 [1, 3] 1
+
+var insert1 = (value) => ({into : (array) => ({after: (afterValue) => {
+    console.log(value, array, afterValue);
+}})})
+insert1(2).into([1, 3]).after(1); //2 [1, 3] 1
+
+</script>
+</html>

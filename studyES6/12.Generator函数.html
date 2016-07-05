@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+// Generator函数是分段执行的，yield语句是暂停执行的标记，而next方法可以恢复执行。
+function* helloWorldGenerator() {
+  yield 'hello';
+  yield 'world';
+  return 'ending';
+}
+
+var hw = helloWorldGenerator();
+console.log(hw.next());
+// { value: 'hello', done: false }
+
+console.log(hw.next());
+// { value: 'world', done: false }
+
+console.log(hw.next());
+// { value: 'ending', done: true }
+
+console.log(hw.next());
+// { value: undefined, done: true }
+
+
+</script>
+</html>

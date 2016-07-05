@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+function log(x, y = 'World') {
+  console.log(x, y);
+}
+
+log('Hello') // Hello World
+log('Hello', 'China') // Hello China
+log('Hello', '') // Hello
+
+//如果传入undefined，将触发该参数等于默认值，null则没有这个效果
+log('Hello', undefined) // Hello World
+log('Hello', null) // Hello null
+
+
+</script>
+</html>

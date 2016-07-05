@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+
+// 由于每一个Symbol值都是不相等的，这意味着Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖
+
+var mySymbol = Symbol();
+var cc = Symbol();
+
+// 第一种写法
+var a = {}, b = {};
+a[mySymbol] = 'Hello!';
+
+// 第二种写法
+var b = {
+  [mySymbol]: 'Hello!',
+  'mySymbol': 'world'
+};
+b[cc] = "hi";
+
+console.log(a[mySymbol]);  //Hello
+console.log(b[mySymbol]);  //Hello
+console.log(b['mySymbol']);  //world
+console.log(b); // Object {mySymbol: "world", Symbol(): "Hello!", Symbol(): "hi"}
+
+
+
+//遍历属性名
+
+let obj = {
+  [Symbol('my_key')]: 1,
+  enum: 2,
+  nonEnum: 3
+};
+
+//for in 只能不能遍历symbol对象名
+for(var item in obj){
+	console.log(item);    //"enum", "nonEnum"
+}
+
+//getOwnPropertySymbols() 只能遍历symbol对象名
+console.log(Object.getOwnPropertySymbols(obj)); //Symbol(my_key)
+
+// Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名
+console.log(Reflect.ownKeys(obj));  //["enum", "nonEnum", Symbol(my_key)]
+
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+//交换变量的值
+console.log("交换变量的值");
+let x=3, y=5;
+[x, y] = [y, x];
+console.log("x =", x);
+console.log("y =", y);
+
+//提取JSON数据
+console.log("提取JSON数据");
+var jsonData = {
+  id: 42,
+  status: "OK",
+  data: [867, 5309]
+};
+
+let { id, status, data: number } = jsonData;
+console.log(id, status, number);
+
+
+</script>
+</html>

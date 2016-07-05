@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+/* 需要再本文件夹先执行anywhere */
+
+var getJSON = function(url) {
+  var promise = new Promise(function(resolve, reject){
+    var client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    // client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+
+    function handler() {
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response);
+      } else {
+        reject(new Error(this.statusText));
+      }
+    };
+  });
+  return promise;
+};
+
+
+//采用链式的then，可以指定一组按照次序调用的回调函数。这时，前一个回调函数，有可能返回的还是一个Promise对象（即有异步操作），这时后一个回调函数，就会等待该Promise对象的状态发生变化，才会被调用。第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。
+
+getJSON("posts/posts1.json").then(function(data) {
+  console.log("Resolved: ", data);
+  return getJSON("posts/posts2.json");  
+}).then(function(data) {
+  console.log("Resolved: ", data);
+  // return getJSON("posts/posts3.json");
+  return "sucess";
+}, function(err){
+  console.log("Rejected: ", err);
+}).then(function(data) {
+  console.log("Resolved: ", data);
+}, function(err){
+  console.log("Rejected: ", err);
+});
+
+
+</script>
+</html>

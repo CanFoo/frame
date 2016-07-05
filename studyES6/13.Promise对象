@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+//Promise新建后就会立即执行
+let promise1 = new Promise(function(resolve, reject) {
+  console.log('Promise1');
+  resolve();//如果状态从“未完成”变为“成功”（即从Pending变为Resolved），则执行resolve();
+});
+
+promise1.then(function() {  //.then的第一个参数是resolve的函数定义
+  console.log('Resolved.');
+});
+
+let promise2 = new Promise(function(resolve, reject) {
+  console.log('Promise2');
+  reject();//如果状态从“未完成”变为“失败”（即从Pending变为Rejected），则执行resolve();
+});
+
+promise2.then(function() { //.then的第二个参数是reject的函数定义
+  console.log('Resolved.');
+},function() {
+  console.log('Reject.');
+});
+
+
+//异步加载图片的例子
+function loadImageAsync(url) {
+  return new Promise(function(resolve, reject) {
+    var image = new Image();
+
+    image.onload = function() {
+      resolve(image);
+    };
+
+    image.onerror = function() {
+      reject(new Error('Could not load image at ' + url));
+    };
+
+    image.src = url;
+  });
+}
+// loadImageAsync.then(function(){ 加载成功... }, function(){ 加载失败... });
+
+</script>
+</html>

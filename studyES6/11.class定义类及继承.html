@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<h1>ES6</h1>
+</body>
+<script>
+
+
+/*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+＊                      class定义类                ＊
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
+//类的定义
+class Point {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	add() {
+		console.log(this.x + this.y);
+	}
+}
+
+var a = new Point(2,3);
+a.add();
+
+
+
+/*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+＊                      继承                       ＊
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
+
+//定义父类
+class Pnum {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+	//定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。
+	add() {
+		return this.x + this.y;
+	}
+}
+
+//子类ColorPoint继承父类Punm
+class ColorPoint extends Pnum {
+  constructor(x, y, color) {
+    super(x, y);  //在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，是基于对父类实例加工，只有super方法才能返回父类实例。
+    this.color = color; 
+  }
+
+  toString() {
+  	console.log(this.color + "num" + super.add());
+  }
+}
+var b =  new ColorPoint(2, 3, "blue");
+b.toString();
+
+
+
+</script>
+</html>
