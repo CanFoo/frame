@@ -1,0 +1,17 @@
+body {
+	background: yellow;
+}
+
+.mm {
+	width: 150px;
+	height: 150px;
+	margin: 30px;
+	background: url('../img/img1.jpg');
+}
+
+.header {
+	font-size: 30px;
+	color: pink;
+	background: #666;
+	height: 50px;
+}

@@ -1,0 +1,3 @@
+require.config({paths:{jQuery:"../lib/jQuery",b:"b",c:"c",app:"app"},shim:{jQuery:{exports:"$"},b:{deps:["jQuery"],exports:"b"},c:{exports:"c"}}}),require(["jQuery","app"],function(e,r){r.init()}),define(["jQuery","b","c"],function(e,r,i){return{init:function(){e("#id").html("yyyyy"),r.set(),i.show("lllllll"),console.log("hello")}}});
+;require.config({paths:{jQuery:"../lib/jQuery",b:"b"},shim:{jQuery:{exports:"$"}}}),define(["jQuery","b"],function(e){return{set:function(){e("#id").css({background:"pink"}),console.log("b.set")}}});
+;require.config({paths:{c:"c"}}),define(function(){return{show:function(n){console.log(n)}}});

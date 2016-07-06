@@ -1,0 +1,1 @@
+require.config({paths:{c:"c"}}),define(function(){return{show:function(n){console.log(n)}}});

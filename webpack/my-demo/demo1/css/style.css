@@ -1,0 +1,16 @@
+body {
+	background: yellow;
+}
+
+.box {
+	height: 100px;
+	width: 100px;
+	background: blue;
+	margin: 20px;
+}
+
+.mm {
+	width: 150px;
+	height: 150px;
+	background: url('../img/img1.jpg');
+}
