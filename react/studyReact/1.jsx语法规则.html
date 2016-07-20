@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script> 
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      {
+          // JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），
+          // 就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。
+          var names = ['Alice', 'Emily', 'Kate'];
+          ReactDOM.render(
+            /*最外层有一个只有一个标签*/
+            <div>   
+                <h1>Hello, world!</h1>
+                {
+                  // 大扣号内的语句间是用逗号隔开的
+                  console.log("1111111"),
+                  console.log("2222222"),
+                  names.map((name) => {
+                    return <div> Hello, {name} </div>
+                  }),
+                  console.log("3333333")
+                }
+            </div>,
+            document.getElementById('example')
+          ); 
+      }
+
+    </script>
+  </body>
+</html>
