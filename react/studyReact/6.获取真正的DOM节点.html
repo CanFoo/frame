@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+  <style>
+
+  </style>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+     {
+        var MyComponent = React.createClass({
+          getInitialState: function() {
+            return {text: "hello"};
+          },
+          handleClick: function() {
+            //文本输入框必须有一个 ref 属性，然后 this.refs.[refName] 
+            //就会返回这个真实的 DOM 节点。
+    
+            // 需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，
+            // 所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。
+            
+            console.log(this.refs.myTextInput);
+            this.setState({text: this.refs.myTextInput.value});
+          },
+          render: function() {
+            return (
+              <div>
+                <input type="text" ref="myTextInput" />
+                <input type="button" value="button" onClick={this.handleClick} />
+                <h1>{this.state.text}</h1>
+              </div>
+            );
+          }
+        });
+
+        ReactDOM.render(
+          <MyComponent />,
+          document.getElementById('example')
+        );
+     }
+    </script>
+  </body>
+</html>
