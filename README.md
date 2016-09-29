@@ -1,2 +1,18 @@
-# frame
-这是一个前端框架学习的仓库
+# Frame
+###再长的路，一步步也能走完。再短的路，不迈开双脚也无法到达。
+###保持一颗学习的心。
+
+###[React学习笔记](https://github.com/CanFoo/frame/tree/master/react)
+
+###[Vue学习笔记](https://github.com/CanFoo/frame/tree/master/vue)
+
+###[ES6学习笔记](https://github.com/CanFoo/frame/tree/master/studyES6)
+
+###[webpack学习笔记](https://github.com/CanFoo/frame/tree/master/webpack)
+
+###[fis学习笔记](https://github.com/CanFoo/frame/tree/master/fis)
+
+###[require学习笔记](https://github.com/CanFoo/frame/tree/master/require)
+
+
+
