@@ -1,6 +1,6 @@
 # Frame
 ###再长的路，一步步也能走完。再短的路，不迈开双脚也无法到达。
-###保持一颗学习的心。
+###走过那么多路，还得在继续前进：
 
 ###[React学习笔记](https://github.com/CanFoo/frame/tree/master/react)
 
