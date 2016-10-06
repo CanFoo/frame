@@ -8,3 +8,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
 }
+
+div, ul, li, p, input, h1, span, button {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	list-style: none;
+}

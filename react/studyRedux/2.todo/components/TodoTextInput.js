@@ -14,9 +14,7 @@ class TodoTextInput extends Component {
     if(e.keyCode === 13) {
       this.props.onSave(e.target.value)
       if(this.props.newTodo) {
-        this.setState({
-          text: ''
-        })
+        this.setState({text: ''})
       }
     }
   }
@@ -31,9 +29,7 @@ class TodoTextInput extends Component {
     if(e.target.value) {
       this.props.onSave(e.target.value)
       if(this.props.newTodo) {
-        this.setState({
-          text: ''
-        })
+        this.setState({text: ''})
       }
     }
   }
@@ -49,6 +45,7 @@ class TodoTextInput extends Component {
           'todo_item': this.props.todoItem
           })}
           type="text"
+          placeholder={this.props.placeholder}
           value={this.state.text}
           onBlur={this.handleBlur.bind(this)}
           onChange={this.handleChange.bind(this)}

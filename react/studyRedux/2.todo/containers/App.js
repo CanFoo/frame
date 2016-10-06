@@ -13,7 +13,7 @@ class App extends Component {
       <div>
         <Header addTodo={actions.addTodo} />
         <MainSection  todos={todos} 
-                      editTodo={actions.editTodo}/>
+                      actions={actions}/>
       </div>
     )
   }

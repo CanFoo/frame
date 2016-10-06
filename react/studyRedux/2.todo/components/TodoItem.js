@@ -16,18 +16,21 @@ class TodoItem extends Component {
   }
 
   handleSave(id, text) {
+    if(text === '') {
+      this.props.deleteTodo(id);
+      return;
+    }
     this.props.editTodo(id, text);
     this.setState({editing: false});
   }
 
-  test(text) {
-
+  handleDeleteTodo(id) {
+    this.props.deleteTodo(id);
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
-
-    let element
+    const {todo} = this.props;
+    let element;
     if (this.state.editing) {
       //这里属性onSave的写法与Header.js写法保持一致，都是只传入一个text参数
       element = (
@@ -41,6 +44,7 @@ class TodoItem extends Component {
       element = (
         <div className="text" onDoubleClick={this.handleDoubleClick.bind(this)}>
           <p>{todo.text}</p>
+          <button className='btn' onClick={() => this.handleDeleteTodo(todo.id)}></button>
         </div>
       )
     }
