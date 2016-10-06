@@ -13,10 +13,8 @@ class TodoTextInput extends Component {
 
   handleSubmit(e) {
     const text = e.target.value.trim();
-    console.log('text', text)
     if (e.which === 13) {   //回车
       this.props.onSave(text)
-
       if (this.props.newTodo) {
         this.setState({ text: '' })
       }
@@ -24,12 +22,10 @@ class TodoTextInput extends Component {
   }
 
   handleChange(e) {
-    console.log('change....')
     this.setState({ text: e.target.value })
   }
 
   handleBlur(e) {
-
     if (!this.props.newTodo) {
       this.props.onSave(e.target.value)
     }
