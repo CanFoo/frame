@@ -23,7 +23,7 @@
 	width: 10px;
 	height: 10px;
 	position: absolute;
-	top: 5px;
+	top: 13px;
 	right: 12px;
 	border: 0px;
 	background: transparent;
@@ -39,4 +39,10 @@
 
 .btn:after {
 	content: '×';
+	width: 10px;
+	height: 10px;
+	display: block;
+	position: absolute;
+	left: -2px;
+	top: -12px;
 }
