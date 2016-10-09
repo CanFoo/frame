@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import Counter from '../components/Counter'
 import * as CounterActions from '../actions/counter.js'
 
-//将全局state.numRecord绑定到props的numRecord
+//将全局state.numRecord绑定到props的numRecord，每次更新store上的数据都会执行此函数
 function mapStateToProps(state) {
+	console.log('更新数据')
 	return {
 		numRecord: state.numRecord
 	}

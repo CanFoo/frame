@@ -4,6 +4,7 @@ class Counter extends Component {
   render() {
     //从组件的props属性中导入四个方法和一个变量
     const { increment,decrement, numRecord} = this.props;
+    let num = 0;
     //渲染组件，包括一个数字，四个按钮
     return (
       <div>
@@ -14,7 +15,7 @@ class Counter extends Component {
         <button onClick={decrement}>-</button>
         {
           numRecord.allData.map(item => {
-            return <h1>{item}</h1>
+            return <h1 key={num++}>{item}</h1>
           })
         }
       </div>
