@@ -1,7 +1,7 @@
 # react-router-redux template
-react + react-router + react-redux开发环境demo 
+react-router-redux开发环境demo 
 
-运行开放环境命令(localhost:3000)
+运行开发环境命令(localhost:3000)
 ```
 npm run dev
 ```
