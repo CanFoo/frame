@@ -1,4 +1,0 @@
-export const GETALLDATA = 'GETALLDATA'
-export const USERSDATA = 'USERSDATA'
-export const NAVEXPANDSIPALY = 'NAVEXPANDSIPALY'
-export const ADDUSER = 'ADDUSER'
