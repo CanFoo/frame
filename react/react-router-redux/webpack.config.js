@@ -3,6 +3,15 @@ const path = require('path');
 
 module.exports = {
   entry: './router.js',
+  devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true,
+      contentBase: "./build", 
+      port: 3000,
+  },
+
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'

@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --no-info --port 3000 --open",
-    "dev": "webpack-dev-server --history-api-fallback --no-info --port 3000",
+    "dev": "webpack-dev-server --progress --hot --colors --no-info --prot 3000",
     "build": "NODE_ENV=production webpack -p --config webpack.production.config.js --progress --profile --colors"
   }
 }

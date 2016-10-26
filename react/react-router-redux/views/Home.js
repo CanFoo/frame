@@ -6,7 +6,7 @@ import Text from '../components/text.js'
 function Home({ number, increase, decrease }) {
   return (
     <div>
-      <Text text="Home Page"/>
+      <Text text="Home Page!"/>
       Some state changes:
       {number}
       <button onClick={() => increase(1)}>Increase</button>
