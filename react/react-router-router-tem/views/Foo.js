@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 
-export default function Foo() {
-  return <div>Foo Page</div>
+class Foo extends Component {
+  render() {
+    return (
+      <div>Foo Page</div>
+    )
+  }
 }
+
+export default Foo
