@@ -8,7 +8,7 @@ function Home({ number, increase, decrease }) {
     <div>
       <Text text="Home Page"/>
       Some state changes:
-      <span style={{color: 'red', fontSize: '30px', margin: '0 6px'}}>{number}</span>
+      <span style={{color: 'blue', fontSize: '30px', margin: '0 6px'}}>{number}</span>
       <button onClick={() => increase(1)}>Increase</button>
       <button onClick={() => decrease(1)}>Decrease</button>
     </div>

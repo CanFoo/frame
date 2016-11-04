@@ -33,7 +33,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
     },
     { test: /\.less$/, 
       loader: "style!css!less"
@@ -60,7 +60,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin("style.css")
+    new ExtractTextPlugin('style.css', {allChunks: true})
   ]
 }
 
