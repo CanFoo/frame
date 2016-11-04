@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE } from '../constants'
+import { INCREASE, DECREASE } from '../constants/countType'
 
 export function increase(n) {
   return {

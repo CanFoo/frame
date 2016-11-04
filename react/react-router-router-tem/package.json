@@ -23,18 +23,20 @@
     "eslint": "^1.10.3",
     "eslint-config-rackt": "^1.1.1",
     "eslint-plugin-react": "^3.16.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "redux-devtools": "^3.1.0",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.4",
+    "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --no-info --port 3000 --open",
-    "dev": "webpack-dev-server --progress --hot --colors --no-info --prot 3000",
+    "dev": "webpack-dev-server --progress --hot --colors --info --prot 3000",
     "build": "NODE_ENV=production webpack -p --config webpack.production.config.js --progress --profile --colors"
   }
 }

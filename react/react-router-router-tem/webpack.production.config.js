@@ -1,17 +1,13 @@
-/* eslint-disable */
 const path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: './router.js',
-  devServer: {
-      historyApiFallback: true,
-      hot: true,
-      inline: true,
-      progress: true,
-      contentBase: "./build", 
-      port: 3000,
-  },
-
+  entry: [
+    './router.js' // Your appʼs entry point
+  ],
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -25,7 +21,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
     },
     { test: /\.less$/, 
       loader: "style!css!less"
@@ -50,7 +46,22 @@ module.exports = {
       test: /\.png/,
       loader: "url-loader?limit=10000&mimetype=image/png"
     }]
-  }
+  },
+	plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false,
+      },
+    }),
+    new ExtractTextPlugin('style.css', {allChunks: true}),
+		new webpack.DefinePlugin({
+	      'process.env':{
+	        'NODE_ENV': JSON.stringify('production')
+	      }
+	  }),
+    new CopyWebpackPlugin([
+          {from: './index.html'}
+    ])
+	]
 }
-
-

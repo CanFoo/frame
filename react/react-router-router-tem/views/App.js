@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router'
+import '../style/views/App.css'
 
 export default function App({ children }) {
   return (
-    <div>
+    <div className="app">
       <header>
         Links:
         {' '}

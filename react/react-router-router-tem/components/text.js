@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import './text.less'
 
 class Text extends Component {
   render() {

@@ -1,11 +1,25 @@
+/* eslint-disable */
 const path = require('path');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './router.js' // Your appʼs entry point
-  ],
+  // 配置服务器
+  devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true,
+      contentBase: "./build", 
+      port: 3000,
+      // proxy: { // 联调中跨域问题解决
+      //     '/vote/index/data': {
+      //         changeOrigin: true,
+      //         target: 'http://localhost:8080',
+      //         secure: false,
+      //     }
+      // }
+  },
+  entry: './router.js',
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -45,20 +59,9 @@ module.exports = {
       loader: "url-loader?limit=10000&mimetype=image/png"
     }]
   },
-	plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        warnings: false,
-      },
-    }),
-		new webpack.DefinePlugin({
-	      'process.env':{
-	        'NODE_ENV': JSON.stringify('production')
-	      }
-	  }),
-    new CopyWebpackPlugin([
-          {from: './index.html'}
-    ])
-	]
+  plugins: [
+    new ExtractTextPlugin("style.css")
+  ]
 }
+
+
