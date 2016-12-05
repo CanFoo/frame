@@ -34,7 +34,7 @@ var vm = new Vue({
       get: function(){  //将firstName和lastName的变化实时更新到fullName上
           return this.firstName + ' ' + this.lastName; 
       },
-      set: function (newValue) {  //将ffullName的变化分别实时更新到firstName和lastName上
+      set: function (newValue) {  //将fullName的变化分别实时更新到firstName和lastName上
         var names = newValue.split(' ')
         this.firstName = names[0]
         this.lastName = names[names.length - 1]
