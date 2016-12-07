@@ -1,0 +1,81 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    width: 100%;
+    background: #fff;
+}
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+}
+a, input, textarea, select {
+    outline: 0;
+}
+header, footer, nav, section, figure, figcaption, aside, article {
+    display: block;
+}
+div, a, input, ul, li, p, img, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    // text-decoration: none;
+    // color: #099cd6;
+}
+p {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+i {
+    font-style:normal;
+}
+ul, li,  dl, dt, dd {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.mark {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(41, 40, 40, 0.75);
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.fc {
+    clear: both;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.pf {
+    position: fixed;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.mb10 {
+    margin-bottom: 10px;
+}
+.mlr10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
