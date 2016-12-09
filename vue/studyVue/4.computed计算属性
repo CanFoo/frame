@@ -26,7 +26,7 @@ var vm = new Vue({
     lastName: 'Bar',
     fullName: 'Foo Bar'
   },
-  computed: {
+  computed: {  //注意：计算属性不能由其值return本身的值，这样没有意义。
     fullName: function () {
       return this.firstName + ' ' + this.lastName; //计算属性，当绑定firstName和lastName发生变化时，会触发该函数
     }
