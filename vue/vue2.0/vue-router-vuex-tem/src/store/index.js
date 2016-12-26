@@ -1,22 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mutations from './mutations'
-import actions from './actions'
+import loadingMutations from './loading/mutations'
+import counterMutations from './counter/mutations'
+import counterAction from './counter/actions'
 
 Vue.use(Vuex);
 
-const state = {
-  count: 0
+const loading = {
+	state: {
+		stack: []
+	},
+	mutations: loadingMutations
 }
-
 const getters = {
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+	evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+}
+const counter = {
+	state: {
+		count: 0
+	},
+	actions: counterAction,
+	mutations: counterMutations,
+	getters
 }
 
 export default new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions
+	modules: {
+		loading,
+		counter
+	}
 })
 

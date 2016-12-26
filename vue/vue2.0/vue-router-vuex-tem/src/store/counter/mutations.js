@@ -1,4 +1,4 @@
-import * as TYPES from './mutation-types'
+import * as TYPES from './types'
 
 export default {
   [TYPES.INCREMENT] (state) {

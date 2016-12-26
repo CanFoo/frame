@@ -1,6 +1,6 @@
 <template>
   <div>
-    Clicked: {{ $store.state.count }} times, count is {{ evenOrOdd }}.
+    Clicked: {{ $store.state.counter.count }} times, count is {{ evenOrOdd }}.
     <mt-button type="default" size="small" @click="increment">+</mt-button>
     <mt-button type="default" size="small" @click="decrement">-</mt-button>
     <mt-button type="default" size="small" @click="incrementIfOdd">Increment if odd</mt-button>

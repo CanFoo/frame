@@ -40,6 +40,20 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  store._mutations.pushLoadStack[0]()
+  next()
+})
+
+router.afterEach(route => {
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
+  window.onscroll = null
+  setTimeout(() => {
+    store._mutations.completeLoad[0]()
+  }, 100)
+})
+
 var app = new Vue({
   el: '#app',
   router,
