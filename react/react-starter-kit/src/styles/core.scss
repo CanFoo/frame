@@ -1,0 +1,23 @@
+@import './base.scss';
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a{
+  color:#07c;
+  text-decoration: none;
+  &:hover{
+    color:#3af;
+    text-decoration: underline;
+  }
+}
+
+.container{
+  max-width:1000px;
+  margin:0 auto;
+}
+.text-center{
+  text-align: center;
+}
