@@ -4,7 +4,7 @@ import './HomeView.scss'
 
 export const HomeView = () => (
 	<div>
-		<h4>Hello, Welcome!</h4>
+		<h4 style={{marginTop: '.2rem'}}>Hello, Welcome!</h4>
 		<img
 			alt='This is a duck, because Redux!'
 			className='duck'

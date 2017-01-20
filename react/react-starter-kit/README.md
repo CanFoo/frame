@@ -1,7 +1,8 @@
 # react脚手架
 ## 特性
 1. 集成react+redux+router技术栈
-2. 按需加载组件
+2. 集成antd-mobile-ui库
+3. 按需加载组件
 
 ## 如何使用
 运行开发环境命令(localhost:3000)

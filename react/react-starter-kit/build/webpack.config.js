@@ -3,6 +3,7 @@ const cssnano = require('cssnano')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = require('../config')
+const pxtorem = require('postcss-pxtorem')
 const debug = require('debug')('app:webpack:config')
 
 const paths = config.utils_paths
@@ -17,9 +18,10 @@ const webpackConfig = {
   devtool: config.compiler_devtool,
   resolve: {
     root: paths.client(),
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['', '.web.js', '.js', '.jsx', '.json']
   },
-  module: {}
+  module: {},
+  postcss: []
 }
 
 const APP_ENTRY = paths.client('main.js')
@@ -37,6 +39,11 @@ webpackConfig.output = {
   path: paths.dist(),
   publicPath: config.compiler_public_path
 }
+
+webpackConfig.postcss.push(pxtorem({
+    rootValue: 100,
+    propWhiteList: [],
+}))
 
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),   //将config.globals变量定义在开发代码中

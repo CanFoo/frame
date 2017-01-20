@@ -5,14 +5,7 @@ import makeRootReducer from './reducers'
 import { updateLocation } from './location'
 
 export default (initialState = {}) => {
-  // ======================================================
-  // Middleware Configuration
-  // ======================================================
   const middleware = [thunk]
-
-  // ======================================================
-  // Store Enhancers
-  // ======================================================
   const enhancers = []
   if (__DEV__) {
     const devToolsExtension = window.devToolsExtension
@@ -21,9 +14,6 @@ export default (initialState = {}) => {
     }
   }
 
-  // ======================================================
-  // Store Instantiation and HMR Setup
-  // ======================================================
   const store = createStore(
     makeRootReducer(),
     initialState,
@@ -36,7 +26,6 @@ export default (initialState = {}) => {
 
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
   store.unsubscribeHistory = browserHistory.listen(updateLocation(store))
-
   if (module.hot) {
     module.hot.accept('./reducers', () => {
       const reducers = require('./reducers').default

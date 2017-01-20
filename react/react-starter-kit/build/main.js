@@ -18,7 +18,7 @@ function setProxyServer(path, host) {
     }
   })
   app.use(path, apiProxy)
-  console.log('Proxy created: ' + path + ' -> ' + host)
+  debug('Proxy created: ' + path + ' -> ' + host)
 }
 proxyPaths.forEach((item) => {
   setProxyServer(item, proxyTable[item])

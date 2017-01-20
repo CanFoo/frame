@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './Zen.scss'
 import Spinner from 'react-spinkit'
+import { Button } from 'antd-mobile'
 
 export default class Zen extends Component {
 
@@ -15,11 +16,13 @@ export default class Zen extends Component {
           }
         </div>
         <div>
-          <button className='btn btn-default' onClick={fetchZen}>
+          <Button className='btn btn-default' onClick={fetchZen}>
             {fetching ? 'Fetching...' : 'Fetch'}
-          </button>
+          </Button>
           &nbsp;&nbsp;
-          <button className='btn btn-default' onClick={clearZen}>Clear</button>
+          <Button className='btn btn-default' onClick={clearZen}>
+            Clear
+          </Button>
         </div>
         <div>
           {text.map(item => (
