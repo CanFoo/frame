@@ -5,6 +5,8 @@
 
 ###[Vue学习笔记](https://github.com/CanFoo/frame/tree/master/vue)
 
+###[Angular1.x学习笔记](https://github.com/canfoo/frame/tree/master/angular)
+
 ###[ES6学习笔记](https://github.com/CanFoo/frame/tree/master/studyES6)
 
 ###[webpack学习笔记](https://github.com/CanFoo/frame/tree/master/webpack)
