@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+      <div ng-controller="myCtrl">
+        <button ng-click="sayHello()">点我！</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+
+      var Greeter = function() {
+        this.greet = function(msg) {
+            alert(msg);
+        }
+      }
+
+      angular.module('myApp', [])
+      .service('greeter', Greeter)  //使用service()可以注册一个支持构造函数的服务，它允许我们为服务对象注册一个构造 函数。
+      .controller('myCtrl', ['$scope', '$injector', function ($scope, $injector) {
+        var greeter = $injector.get('greeter');  //get()方法返回一个服务的实例
+
+        $scope.sayHello = function () {
+          greeter.greet('hello!');
+        }
+      }])
+    </script>
+</body>
+
+</html>

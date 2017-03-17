@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error): -->
+    <form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">
+        Email:
+        <input type="email" name="myAddress" ng-model="myText">
+        <p>编辑邮箱地址，查看状态的改变。</p>
+        <h1>状态</h1>
+        <!-- 输入的数据不是邮箱格式则不合法 -->
+        <p>Valid: {{myForm.myAddress.$valid}} (如果输入的值是合法的则为 true)。</p>
+        <p>Dirty: {{myForm.myAddress.$dirty}} (如果值改变则为 true)。</p>
+        <p>Touched: {{myForm.myAddress.$touched}} (如果通过触屏点击则为 true)。</p>
+    </form>
+</body>
+
+</html>

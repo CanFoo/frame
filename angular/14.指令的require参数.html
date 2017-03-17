@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <hello>
+            {{name}}
+            <div>hello</div>
+            <beautiful good>
+                beautiful
+            </beautiful>
+        </hello>
+    </div>
+    <script>
+
+    // require有两个修饰符号:”?”、”^”
+    // ? : 如果在当前指令中没有 到所需要的控制器，会将null作为传给link函数的第 个参数
+    // ^ : 表示往父级查找
+    var app = angular.module('myApp', []);
+    app.directive("hello",function(){
+        return {
+            restrict : "E",
+            controller : function($scope){  //指令对应作用域的控制器
+                $scope.name = "张三";
+                this.information = {
+                    name : $scope.name,
+                    age : 25,
+                    job : "程序员"
+                }
+            },
+            link : function(scope){
+     
+            }
+        }
+    });
+
+    app.directive("beautiful",function(){
+        return {
+            restrict : "E",
+            require : "?good",
+            controller : function(){
+                this.name = "beautiful";
+            },
+            link : function (scope,element,attrs,good) {
+                console.log('good.name', good.name) //可以拿到当前作用域另外一个指令(这里是good)的控制器数据
+            }
+        }
+    });
+
+    app.directive("good",function(){
+        return {
+            restrict : "A",
+            require : "?^hello",
+            controller : function(){
+                this.name = "good";
+            },
+            link : function (scope,element,attrs,hello) {
+                console.log(hello.information) //可以拿到拿到父级的指令(这里是hello)的控制器数据
+            }
+        }
+    });
+
+    app.controller('myCtrl', function ($scope) {
+    })
+
+    </script>
+</body>
+
+</html>

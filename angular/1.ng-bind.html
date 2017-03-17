@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!-- ng-bind 指令把应用程序数据绑定到 HTML 视图。 -->
+<div ng-app="">
+	<h1 ng-bind="title" ng-init="title='计算标题'"></h1>
+ 	<div ng-app="" ng-init="quantity=1;cost=5">
+	<p>总价： <span ng-bind="quantity * cost"></span></p>
+</div>
+</div>
+
+</body>
+</html>

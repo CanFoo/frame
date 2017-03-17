@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/ng-template" id="tem1.html">
+        <!--#include virtual="./tem.html" -->
+    </script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div  my-directive
+              my-url="http://google.com"
+              my-link-text="Click me to go to Google"
+              ng-model="name"
+              my-fn="clickFn()">
+        </div>
+    </div>
+    <script>
+
+    angular.module('myApp', [])
+    .directive('myDirective', function($timeout) {
+        return {
+            restrict: 'A',
+            replace: true,
+            scope: {
+                myUrl: '@', //绑定策略，这样才可以通过此属性将数据传递进来
+                myLinkText: '@', //绑定策略，这样才可以通过此属性将数据传递进来
+                ngModel: '=', //将ngModel同指定对象绑定起来
+                myFn: '&' //绑定一个方法
+            },
+            template:  '<p ng-click="myFn()"><a href="{{ myUrl }}">{{ myLinkText }}</a><span> is {{ngModel.u}}</span></p>',
+            link: function(scope, element, attrs) {//当directive被angular 编译后，执行link方法
+                console.log('kkkk')
+                console.log('element', element);
+                console.log('attrs', attrs);
+                scope.ngModel.u =  'Can';  //指令改变绑定的对象会触发也会触发外面作用域所对应的变量，见标注“改变了”
+
+            }
+        }
+    })
+    .controller('myCtrl', function ($scope) {
+        console.log('nnn');
+        $scope.ngm = 'hello';
+        $scope.name = {
+            u: 'Google'
+        }
+        $scope.clickFn = function () {
+            alert("连接有点慢");
+        }
+        $scope.$watch('name', function () {
+            console.log('$scope.name', $scope.name);  // ------改变了
+        })
+    })
+
+    </script>
+</body>
+
+</html>

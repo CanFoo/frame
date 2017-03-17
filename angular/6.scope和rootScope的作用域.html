@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+    	<div ng-controller="myCtrl1">
+    		<h1>姓氏为 {{lastname}} 家族成员:</h1>
+    		<ul>
+    		    <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+    		</ul>
+    	</div>
+    	<div ng-controller="myCtrl2">
+    		<h1>姓名： {{name}}</h1>
+    	</div>
+    </div>
+    <script>
+    // $rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。
+
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl1', function($scope, $rootScope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+        $rootScope.lastname = "Refsnes";
+    });
+
+    app.controller('myCtrl2', function($scope, $rootScope) {
+        $scope.name = $rootScope.lastname;
+    });
+
+    </script>
+    <p>注意 $rootScope 在循环对象内外都可以访问。</p>
+</body>
+
+</html>
