@@ -14,7 +14,7 @@ import App from './App'
 import NotFound from './components/404'
 
 
-Vue.use(Mint)
+// Vue.use(Mint)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 

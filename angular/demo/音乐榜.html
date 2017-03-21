@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<style>
+    .box {
+        padding: 10px;
+        border: 1px solid #333;
+        width: 200px;
+        float: left;
+        margin: 5px;
+    }
+</style>
+<body>
+<div ng-app="app">
+    <div ng-controller="musicCtrl" class="box">
+        <h1>{{month}} 月份音乐榜</h1>
+        <p ng-repeat="item in listData">
+            {{item.song}} -- {{item.singer}}
+        </p>
+    </div>
+    <div ng-controller="singerCtrl" class="box">
+        <h1>歌手信息</h1>
+        <span ng-repeat="item in singers" add-alert>
+            {{item}}&nbsp;
+        </span>
+    </div>
+</div>
+<script>
+var app = angular.module('app', []);
+app.factory('listService', function($timeout) {
+    var month = 0;
+    var listData = [];
+    var singerData = [];
+    month = 3;  //模拟月份数据
+    listData = [ //模拟歌曲相关数据
+        {song: "七里香", singer: "周杰伦"}, 
+        {song: "海阔天空", singer: "Beyond"}, 
+        {song: "最初的梦想", singer: "范玮琪"}]
+    listData.forEach(function(item) {
+        singerData.push(item.singer);
+    })
+    return {
+        month: month,
+        listData: listData,
+        singerData: singerData
+    }
+})
+app.directive('addAlert', function() {  
+    return {  
+        restrict : 'A',  
+        link : function(scope, element, attrs) {  
+            element.bind('click', function() {  
+                alert(this.innerHTML);
+            });  
+        }  
+    }  
+});
+app.controller('musicCtrl', function($scope, listService) {
+    $scope.month = listService.month;
+    $scope.listData = listService.listData;
+});
+app.controller('singerCtrl', function($scope, listService) {
+    $scope.singers = listService.singerData
+})
+</script>
+</body>
+
+</html>

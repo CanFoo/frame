@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div clickablefoo foo="foo"></div>
+        <div clickablebar bar="bar"></div>
+    </div>
+    <script>
+
+    angular.module('myApp', [])
+    .directive('clickablebar', function($timeout) {
+        return {
+          restrict: "A",
+          scope: {
+            foo: '=',
+            bar: '='
+          },
+          template: '<ul style="background-color: lightblue; margin: 10px"><li>{{bar}}</li></ul>',
+          link: function(scope, element, attrs) {
+            element.bind('click', function() {
+              scope.bar++;   //点击的时候不累加，因为这里的bar不属于angular context里
+            });
+          }
+        }
+    })
+    .directive('clickablefoo', function($timeout) {
+        return {
+          restrict: "A",
+          scope: {
+            foo: '=',
+            bar: '='
+          },
+          template: '<ul style="background-color: lightblue; margin: 10px"><li>{{foo}}</li></ul>',
+          link: function(scope, element, attrs) {
+            element.bind('click', function() {
+              scope.$apply(function () {  //调用$apply，使foo进入到angular context里
+                scope.foo++;
+              });
+            });
+          }
+        }
+    })
+    .controller('myCtrl', function ($scope) {
+      $scope.foo = 0;
+      $scope.bar = 0;
+    })
+
+    //详见：http://www.angularjs.cn/A0a6
+
+    </script>
+</body>
+
+</html>
