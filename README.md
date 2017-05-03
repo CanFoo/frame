@@ -11,6 +11,8 @@
 
 ### [webpack学习笔记](https://github.com/CanFoo/frame/tree/master/webpack)
 
+### [gulp学习笔记](https://github.com/CanFoo/frame/tree/master/gulp)
+
 ### [fis学习笔记](https://github.com/CanFoo/frame/tree/master/fis)
 
 ### [require学习笔记](https://github.com/CanFoo/frame/tree/master/require)

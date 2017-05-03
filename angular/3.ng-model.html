@@ -16,9 +16,12 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     console.log($scope);
     $scope.name = "John Doe";
-    window.setTimeout(function(){
-    	console.log($scope.name)
-    },3000)
+    // window.setTimeout(function(){
+    // 	console.log($scope.name)
+    // },3000)
+    $scope.$watch('name', function(n) {
+    	console.log(n)
+    })
 });
 </script>
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//官网地址
+	$scope.officialWebsite = {
+	    poiId: '',
+	    dataReady: false,
+	    editMode: false,
+	    originUrl: '',
+	    /* eslint-disable */
+	    urlRegex: '^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$',
+	    /* eslint-enable */
+	    bindUrl: '',
+	    noSite: false,
+	    init: function (res) {   //res: http://wiki.sankuai.com/pages/viewpage.action?pageId=666850248  4.3
+	        this.dataReady = true;
+	        this.poiId = res.poiId;
+	        this.originUrl = res.officialWebsite;
+	    },
+	    onEdit: function () {
+	        this.editMode = true;
+	        if (this.originUrl === '没有官网地址') {
+	            this.bindUrl = '';
+	            this.noSite = true;
+	        } else {
+	            this.bindUrl = this.originUrl || '';
+	            this.noSite = false;
+	        }
+	    },
+	    isBindUrlPatternValid: function () {
+	        if (!this.bindUrl) return true;
+	        if (!new RegExp(this.urlRegex).test(this.bindUrl)) return false;
+	        return true;
+	    },
+	    isBindUrlMinLengthValid: function () {
+	        if (!this.bindUrl) return true;
+	        return this.bindUrl.trim().length >= 3;
+	    },
+	    isBindUrlMaxLengthValid: function () {
+	        if (!this.bindUrl) return true;
+	        return this.bindUrl.trim().length <= 300;
+	    },
+	    idBindUrlValid: function () {
+	        return this.isBindUrlPatternValid() && this.isBindUrlMinLengthValid() && this.isBindUrlMaxLengthValid();
+	    },
+	    isSubmitDisabled: function () {
+	        if (this.noSite) return false;
+	        if (!this.bindUrl.trim()) return true;
+	        if (this.idBindUrlValid()) return false;
+	        return true;
+	    },
+	    onCancel: function () {
+	        this.editMode = false;
+	    },
+	    onSave: function () {
+	        var self = this;
+	        var officialWebsite = this.noSite ? '没有官网地址' : this.bindUrl;
+	        infoWarningApi.saveWebsite({}, {
+	            poiId: this.poiId,
+	            officialWebsite: officialWebsite
+	        }).$promise.then(function (res) {
+	            if (res && res.status === 0) {
+	                // showDialog.success('保存成功');
+	                self.originUrl = officialWebsite;
+	                self.editMode = false;
+	            } else {
+	                showDialog.error('官网地址保存失败：status=' + res.status + ',msg=' + res.msg);
+	            }
+	        }).catch(function (err) {
+	            showDialog.error('官网地址保存失败：http status=' + err.status + ',msg=' + err.statusText);
+	        });
+	    }
+	};
+</script>
+</html>
