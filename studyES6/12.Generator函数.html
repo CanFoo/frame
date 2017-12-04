@@ -11,23 +11,31 @@
 
 // Generator函数是分段执行的，yield语句是暂停执行的标记，而next方法可以恢复执行。
 function* helloWorldGenerator() {
+  console.log('-1111-');
   yield 'hello';
+  console.log('-2222-');
   yield 'world';
+  console.log('-3333-');
   return 'ending';
 }
 
 var hw = helloWorldGenerator();
 console.log(hw.next());
-// { value: 'hello', done: false }
 
-console.log(hw.next());
-// { value: 'world', done: false }
+window.setTimeout(() => {
+	console.log(hw.next());
+}, 2000);
 
-console.log(hw.next());
-// { value: 'ending', done: true }
+window.setTimeout(() => {
+	console.log(hw.next());
+}, 3500);
 
-console.log(hw.next());
-// { value: undefined, done: true }
+window.setTimeout(() => {
+	console.log(hw.next());
+	console.log(hw.next());
+	console.log(hw.next());
+}, 5000);
+
 
 
 </script>
