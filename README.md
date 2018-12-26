@@ -16,20 +16,3 @@
 ### [fis学习笔记](https://github.com/CanFoo/frame/tree/master/fis)
 
 ### [require学习笔记](https://github.com/CanFoo/frame/tree/master/require)
-
-# 测试一下啊
-## 测试一下啊
-### 测试一下啊
-#### 测试一下啊
-##### 测试一下啊
-- a
-- b
-
-## kk
-1. sss
-2. ddd
-
-
-## 功能
-  - [ ] 1
-  - [x] 2
